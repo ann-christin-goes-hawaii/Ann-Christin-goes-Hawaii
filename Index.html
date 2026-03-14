@@ -1,176 +1,451 @@
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-<nav class="navbar">
-    <div class="logo">Ann-Christin goes Hawaii 🌺</div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#map">Journey</a>
-        <a href="#portfolio">HPU Vision</a>
-        <a href="#lifestyle">Lifestyle</a>
-        <a href="#bucketlist">Bucket List</a>
-        <a href="#postcard">Message</a>
-    </div>
-</nav>
-
-<header class="hero">
-    <div class="hero-content">
-        <h1>Beyond Borders:<br>Digital Innovation & The Aloha Spirit</h1>
-        <blockquote class="quote">
-            "Adventure is worthwhile in itself." 
-            <cite>— Amelia Earhart</cite>
-        </blockquote>
-        <div class="hero-btn-container">
-            <a href="#about" class="btn-scroll">Get to Know Me</a>
-        </div>
-    </div>
-</header>
-
-<section id="about" class="about-section">
-    <div class="about-container">
-        <div class="about-image-column">
-            <div class="about-image-wrapper">
-                <img src="https://www.dropbox.com/scl/fi/jk5sb73lv3qe21cp2v6cj/IMG_1154.jpeg?rlkey=4pzz0k0wrd7hn76y5trds0vui&st=0cahhuia&raw=1" alt="Ann-Christin">
-                <div class="image-deco"></div>
-            </div>
-        </div>
-        
-        <div class="about-text-column">
-            <h2 class="section-title">Aloha, I'm Ann-Christin</h2>
-            <p class="intro-text">I'm a <strong>22-year-old explorer</strong> based in Cologne, driven by a passion for digital innovation and a heart that's ready for the Pacific breeze.</p>
-            
-            <div class="fact-grid">
-                <div class="fact-item"><strong>Current Role:</strong> Online Marketing Manager at TRILUX (Cologne)</div>
-                <div class="fact-item"><strong>Education:</strong> B.A. Marketing & Digital Media (Graduated 10/2024) | M.A. Digital Transformation (In Progress)</div>
-                <div class="fact-item"><strong>Passions:</strong> Sports, Travel, Photography & Exploring</div>
-                <div class="fact-item"><strong>Core Values:</strong> Ambition, Empathy & Growth</div>
-            </div>
-            
-            <p>As an Online Marketing Manager, I've learned how to navigate the digital landscape. Now, I am deepening my expertise through my Master's in Digital Transformation Management. I believe that true innovation happens when we look beyond our own borders—both professionally and personally.</p>
-        </div>
-    </div>
-</section>
-
-<section id="map" class="map-section">
-    <h2 class="section-title">Global Pulse</h2>
-    <p class="section-subtitle">A map of experiences: Professional summits and cultural immersion across the globe.</p>
-    <div id="map-container"></div>
-</section>
-
-<section id="portfolio" class="portfolio-section">
-    <div class="hpu-logo-box">
-        <img src="https://www.hpu.edu/brand/images/hpu-primary-color-1000px.png" alt="HPU Logo" class="hpu-logo-img">
-    </div>
-    <h2 class="section-title">Academic Vision @ HPU</h2>
-    <p class="section-subtitle">The following modules at <strong>Hawaii Pacific University</strong> are carefully selected to bridge my experience as an Online Marketing Manager with a global strategic perspective during my semester abroad:</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ann-Christin goes Hawaii 🌺 | HPU Application</title>
     
-    <div class="portfolio-grid">
-        <div class="portfolio-card">
-            <div class="icon">🚀</div>
-            <h3>International Digital Marketing</h3>
-            <p>Scaling my Bachelor's and professional experience to a global level. Studying cross-cultural consumer behavior in the Pacific hub.</p>
-        </div>
-        <div class="portfolio-card">
-            <div class="icon">🌿</div>
-            <h3>Leadership of Self & Others</h3>
-            <p>Exploring how empathetic leadership and the 'Ohana' principle can transform modern management in a digital-first world.</p>
-        </div>
-        <div class="portfolio-card">
-            <div class="icon">🌍</div>
-            <h3>Global HR Management</h3>
-            <p>Focusing on how diverse talent thrives in unique cultural ecosystems—a key factor for successful Digital Transformation.</p>
-        </div>
-    </div>
-</section>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --tropical-blue: #74ebd5;
+            --hibiscus: #ff4bb4;
+            --deep-ocean: #1e3c72;
+            --sand: #fff9f1;
+            --white: #ffffff;
+            --nav-height: 80px;
+        }
 
-<section id="lifestyle" class="lifestyle-section">
-    <h2 class="section-title">The 'Active Aloha' Lifestyle</h2>
-    <div class="lifestyle-grid">
-        <div class="lifestyle-item">
-            <img src="https://www.dropbox.com/scl/fi/nvatdgdd303r9i991f3qi/IMG_0685.jpeg?rlkey=ozajimuombp3yet8apgmjxttz&st=fe9roin9&raw=1" alt="Culture">
-            <div class="overlay">
-                <h3>Cultural Connection</h3>
-                <p>Genuinely open to the history and traditions that make Hawaii unique.</p>
-            </div>
-        </div>
-        <div class="lifestyle-item">
-            <img src="https://www.dropbox.com/scl/fi/9ein2ob14udgvm88wdl4r/IMG_4975.jpeg?rlkey=mpgdwsgju9udvvvffb70fxqau&st=b9hwd3ao&raw=1" alt="Surfing">
-            <div class="overlay">
-                <h3>Wave Rider</h3>
-                <p>Windsurfer in Europe, wave rider in Waikiki—ready for the challenge.</p>
-            </div>
-        </div>
-        <div class="lifestyle-item">
-            <img src="https://www.dropbox.com/scl/fi/5iimqlzh1tiupbq9ki4hn/IMG_1955.jpeg?rlkey=3j7ns3ej30kqoilig60g06cou&st=84n6jeec&raw=1" alt="Sports Passion">
-            <div class="overlay">
-                <h3>Sports Passion</h3>
-                <p>Hyrox, swimming, or skiing—staying active is the key to my focus and energy.</p>
-            </div>
-        </div>
-        <div class="lifestyle-item">
-            <img src="https://www.dropbox.com/scl/fi/t5ue5xbq1behsjq8w97co/IMG_1623.jpeg?rlkey=4phrm34r9bftu3aghzz0fweg5&st=u6q5yqp1&raw=1" alt="Digital Diary">
-            <div class="overlay">
-                <h3>Digital Diary</h3>
-                <p>Capturing the soul of my travels via smartphone to tell compelling digital stories.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            padding-top: var(--nav-height);
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--sand); 
+            color: #333; 
+            line-height: 1.6; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
 
-<section id="bucketlist" class="bucket-section">
-    <h2 class="section-title">My Hawaii Bucket List</h2>
-    <div class="hawaii-slider">
-        <div class="h-slides">
-            <div class="h-slide active">
-                <img src="https://www.cestee.de/images/54/78/45478-920w.webp" alt="Waikiki">
-                <div class="h-info"><h3>Waikiki Beach</h3><p>Surfing legendary waves where it all began.</p></div>
-            </div>
-            <div class="h-slide">
-                <img src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2016-10/Volcanoes.jpg?h=330036a1&itok=uLO2_lw1" alt="Volcano">
-                <div class="h-info"><h3>Volcanoes National Park</h3><p>Witnessing the raw power of earth's creation.</p></div>
-            </div>
-            <div class="h-slide">
-                <img src="https://pearlharbor.org/wp-content/uploads/2023/03/FAQ.jpg" alt="Pearl Harbor">
-                <div class="h-info"><h3>Pearl Harbor</h3><p>Honoring history and understanding the past.</p></div>
-            </div>
-            <div class="h-slide">
-                <img src="https://i.redd.it/l7c04y0gj65y.jpg" alt="North Shore">
-                <div class="h-info"><h3>The North Shore</h3><p>Watching the giants at the Pipeline.</p></div>
-            </div>
-            <div class="h-slide">
-                <img src="https://www.mauiticketsforless.com/wp-content/uploads/haleakala.jpg" alt="Haleakala">
-                <div class="h-info"><h3>Haleakalā Summit</h3><p>Watching the sunrise above the clouds.</p></div>
+        /* --- Navbar --- */
+        .navbar {
+            height: var(--nav-height);
+            padding: 0 5%; 
+            background: rgba(255,255,255,0.98);
+            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; top: 0; width: 100%; z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-weight: 700; color: var(--deep-ocean); font-size: 1.3rem; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--hibiscus); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: calc(100vh - var(--nav-height));
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1500');
+            background-size: cover; background-position: center;
+            display: flex; justify-content: center; align-items: center; 
+            text-align: center; color: white;
+            padding: 40px 20px;
+        }
+        .hero-content {
+            max-width: 900px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 20px 0; font-weight: 700; line-height: 1.2; }
+        .hero-btn-container { margin-top: 30px; }
+        .btn-scroll { display: inline-block; padding: 12px 35px; background: white; color: var(--deep-ocean); text-decoration: none; border-radius: 30px; font-weight: bold; transition: 0.3s; }
+        .btn-scroll:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .quote { font-style: italic; font-size: 1.1rem; opacity: 0.9; margin: 15px 0; }
+        .quote cite { display: block; font-size: 0.8rem; font-weight: 300; margin-top: 5px; }
+
+        /* --- About Me --- */
+        .about-section { padding: 80px 5%; background: white; }
+        .about-container { display: flex; align-items: center; justify-content: center; gap: 50px; max-width: 1000px; margin: auto; }
+        .about-image-column { flex: 1; max-width: 350px; }
+        .about-image-wrapper { position: relative; }
+        .about-image-wrapper img { width: 100%; border-radius: 20px; position: relative; z-index: 2; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: block; }
+        .image-deco { position: absolute; top: -15px; left: -15px; width: 80px; height: 80px; background: var(--tropical-blue); border-radius: 15px; z-index: 1; }
+        .about-text-column { flex: 1.8; }
+        .section-title { font-size: 2.2rem; color: var(--deep-ocean); font-weight: 700; margin-bottom: 10px; }
+        .intro-text { font-size: 1rem; color: #555; margin-bottom: 20px; }
+        .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
+        .fact-item { background: var(--sand); padding: 12px; border-radius: 10px; font-size: 0.85rem; border-left: 4px solid var(--hibiscus); }
+
+        /* --- Interactive Leaflet Map --- */
+        .map-section { padding: 80px 5%; text-align: center; background: var(--sand); }
+        .section-subtitle { font-size: 1rem; color: #666; margin-bottom: 30px; max-width: 700px; margin-inline: auto; }
+        #map-container { 
+            height: 500px; 
+            width: 100%; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            border-radius: 25px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
+            z-index: 5;
+            background: #f0f4f8;
+        }
+
+        /* Custom Marker Styling */
+        .custom-div-icon {
+            background: var(--hibiscus);
+            border: 2px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 75, 180, 0.5);
+        }
+        .custom-div-icon-hawaii {
+            background: var(--hibiscus);
+            border: 3px solid white;
+            border-radius: 50%;
+            animation: map-pulse 2s infinite;
+        }
+
+        @keyframes map-pulse { 
+            0% { box-shadow: 0 0 0 0 rgba(255, 75, 180, 0.8); } 
+            70% { box-shadow: 0 0 0 15px rgba(255, 75, 180, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(255, 75, 180, 0); } 
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            padding: 5px;
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid var(--hibiscus);
+        }
+        .leaflet-popup-content h4 { margin: 0 0 5px 0; color: var(--deep-ocean); font-size: 1rem; }
+        .leaflet-popup-content p { margin: 0; font-size: 0.85rem; color: #666; }
+
+        /* --- Academic, Lifestyle, Slider --- */
+        .portfolio-section, .bucket-section { padding: 80px 10%; text-align: center; }
+        .hpu-logo-box { margin-bottom: 25px; }
+        .hpu-logo-img { height: 90px; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1100px; margin: auto; }
+        .portfolio-card { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; border-bottom: 5px solid var(--tropical-blue); }
+        .portfolio-card .icon { font-size: 2rem; margin-bottom: 15px; }
+
+        .lifestyle-section { padding: 80px 10%; background: white; text-align: center; }
+        .lifestyle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 30px auto 0; }
+        .lifestyle-item { position: relative; height: 320px; border-radius: 20px; overflow: hidden; }
+        .lifestyle-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .lifestyle-item:hover img { transform: scale(1.1); }
+        .lifestyle-item .overlay { position: absolute; inset: 0; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: white; display: flex; flex-direction: column; justify-content: flex-end; text-align: left; }
+        .lifestyle-item h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
+        .lifestyle-item p { margin: 0; font-size: 0.9rem; }
+
+        .hawaii-slider { position: relative; max-width: 850px; margin: 30px auto; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .h-slides { height: 450px; position: relative; }
+        .h-slide { position: absolute; inset: 0; opacity: 0; transition: 1s ease; }
+        .h-slide.active { opacity: 1; z-index: 2; }
+        .h-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .h-info { position: absolute; bottom: 0; padding: 40px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; width: 100%; text-align: left; z-index: 3; }
+        .h-info h3 { margin: 0 0 5px 0; }
+        .h-info p { margin: 0; }
+        .h-prev, .h-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: none; padding: 15px 20px; cursor: pointer; z-index: 10; font-size: 1.8rem; transition: 0.3s; }
+        .h-prev { left: 0; border-radius: 0 8px 8px 0; }
+        .h-next { right: 0; border-radius: 8px 0 0 8px; }
+        .h-prev:hover, .h-next:hover { background: var(--hibiscus); }
+
+        /* --- Postcard Section --- */
+        .postcard-container { padding: 100px 5%; background: #f0fbfc; display: flex; justify-content: center; }
+        .postcard { background: white; padding: 40px; max-width: 900px; width: 100%; box-shadow: 15px 15px 0 var(--hibiscus); border: 1px solid #ddd; }
+        .postcard-body { display: flex; flex-wrap: wrap; gap: 30px; }
+        .postcard-message { flex: 1.2; min-width: 300px; }
+        .postcard-message h2 { margin-top: 0; color: var(--deep-ocean); }
+        .postcard-address { flex: 0.8; min-width: 250px; padding-left: 30px; border-left: 2px solid #f0f0f0; display: flex; flex-direction: column; }
+        .signature { font-family: cursive; font-size: 2rem; color: var(--hibiscus); margin-top: 20px; }
+        .stamp { width: 90px; height: 110px; border: 3px dashed #ccc; align-self: flex-end; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; margin-bottom: 15px; }
+        .line { border-bottom: 2px solid #999; margin: 12px 0; height: 20px; }
+
+        .footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #888; background: white; }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            :root { --nav-height: 100px; }
+            .hero h1 { font-size: 2rem; }
+            .navbar { flex-direction: column; height: auto; padding: 10px; justify-content: center; }
+            .nav-links { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { margin: 2px 8px; font-size: 0.75rem; }
+            
+            .about-container { flex-direction: column; text-align: center; gap: 30px; }
+            .about-image-column { max-width: 280px; }
+            .fact-grid { grid-template-columns: 1fr; text-align: left; }
+            
+            #map-container { height: 400px; }
+            .postcard-address { border-left: none; padding-left: 0; }
+            .h-slides { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Ann-Christin goes Hawaii 🌺</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#map">Journey</a>
+            <a href="#portfolio">HPU Vision</a>
+            <a href="#lifestyle">Lifestyle</a>
+            <a href="#bucketlist">Bucket List</a>
+            <a href="#postcard">Message</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Beyond Borders:<br>Digital Innovation & The Aloha Spirit</h1>
+            <blockquote class="quote">
+                "Adventure is worthwhile in itself." 
+                <cite>— Amelia Earhart</cite>
+            </blockquote>
+            <div class="hero-btn-container">
+                <a href="#about" class="btn-scroll">Get to Know Me</a>
             </div>
         </div>
-        <button class="h-prev" onclick="changeHSlide(-1)">&#10094;</button>
-        <button class="h-next" onclick="changeHSlide(1)">&#10095;</button>
-    </div>
-</section>
+    </header>
 
-<section id="postcard" class="postcard-container">
-    <div class="postcard">
-        <div class="postcard-body">
-            <div class="postcard-message">
-                <h2>Postcard to the Committee</h2>
-                <p>Dear Selection Committee,</p>
-                <p>My journey to <strong>Hawaii Pacific University</strong> is driven by ambition and a hunger for global perspective.</p>
-                <p>I am ready to grow, to contribute, and to bring the <em>Aloha Spirit</em> back to Germany.</p>
-                <p>Thank you for your consideration!</p>
-                <p class="signature">Ann-Christin</p>
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image-column">
+                <div class="about-image-wrapper">
+                    <img src="https://www.dropbox.com/scl/fi/jk5sb73lv3qe21cp2v6cj/IMG_1154.jpeg?rlkey=4pzz0k0wrd7hn76y5trds0vui&st=0cahhuia&raw=1" alt="Ann-Christin">
+                    <div class="image-deco"></div>
+                </div>
             </div>
-            <div class="postcard-address">
-                <div class="stamp">🌺</div>
-                <div class="address-lines">
-                    <div class="line">Selection Committee</div>
-                    <div class="line">GOmerica! Scholarship</div>
-                    <div class="line">Destination: HPU Hawaii</div>
+            
+            <div class="about-text-column">
+                <h2 class="section-title">Aloha, I'm Ann-Christin</h2>
+                <p class="intro-text">I'm a <strong>22-year-old explorer</strong> based in Cologne, driven by a passion for digital innovation and a heart that's ready for the Pacific breeze.</p>
+                
+                <div class="fact-grid">
+                    <div class="fact-item"><strong>Current Role:</strong> Online Marketing Manager at TRILUX (Cologne)</div>
+                    <div class="fact-item"><strong>Education:</strong> B.A. Marketing & Digital Media (Graduated 10/2024) | M.A. Digital Transformation (In Progress)</div>
+                    <div class="fact-item"><strong>Passions:</strong> Sports, Travel, Photography & Exploring</div>
+                    <div class="fact-item"><strong>Core Values:</strong> Ambition, Empathy & Growth</div>
+                </div>
+                
+                <p>As an Online Marketing Manager, I've learned how to navigate the digital landscape. Now, I am deepening my expertise through my Master's in Digital Transformation Management. I believe that true innovation happens when we look beyond our own borders—both professionally and personally.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="map-section">
+        <h2 class="section-title">Global Pulse</h2>
+        <p class="section-subtitle">A map of experiences: Professional summits and cultural immersion across the globe.</p>
+        <div id="map-container"></div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="hpu-logo-box">
+            <img src="https://www.hpu.edu/brand/images/hpu-primary-color-1000px.png" alt="HPU Logo" class="hpu-logo-img">
+        </div>
+        <h2 class="section-title">Academic Vision @ HPU</h2>
+        <p class="section-subtitle">The following modules at <strong>Hawaii Pacific University</strong> are carefully selected to bridge my experience as an Online Marketing Manager with a global strategic perspective during my semester abroad:</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="icon">🚀</div>
+                <h3>International Digital Marketing</h3>
+                <p>Scaling my Bachelor's and professional experience to a global level. Studying cross-cultural consumer behavior in the Pacific hub.</p>
+            </div>
+            <div class="portfolio-card">
+                <div class="icon">🌿</div>
+                <h3>Leadership of Self & Others</h3>
+                <p>Exploring how empathetic leadership and the 'Ohana' principle can transform modern management in a digital-first world.</p>
+            </div>
+            <div class="portfolio-card">
+                <div class="icon">🌍</div>
+                <h3>Global HR Management</h3>
+                <p>Focusing on how diverse talent thrives in unique cultural ecosystems—a key factor for successful Digital Transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lifestyle" class="lifestyle-section">
+        <h2 class="section-title">The 'Active Aloha' Lifestyle</h2>
+        <div class="lifestyle-grid">
+            <div class="lifestyle-item">
+                <img src="https://www.dropbox.com/scl/fi/nvatdgdd303r9i991f3qi/IMG_0685.jpeg?rlkey=ozajimuombp3yet8apgmjxttz&st=fe9roin9&raw=1" alt="Culture">
+                <div class="overlay">
+                    <h3>Cultural Connection</h3>
+                    <p>Genuinely open to the history and traditions that make Hawaii unique.</p>
+                </div>
+            </div>
+            <div class="lifestyle-item">
+                <img src="https://www.dropbox.com/scl/fi/9ein2ob14udgvm88wdl4r/IMG_4975.jpeg?rlkey=mpgdwsgju9udvvvffb70fxqau&st=b9hwd3ao&raw=1" alt="Surfing">
+                <div class="overlay">
+                    <h3>Wave Rider</h3>
+                    <p>Windsurfer in Europe, wave rider in Waikiki—ready for the challenge.</p>
+                </div>
+            </div>
+            <div class="lifestyle-item">
+                <img src="https://www.dropbox.com/scl/fi/5iimqlzh1tiupbq9ki4hn/IMG_1955.jpeg?rlkey=3j7ns3ej30kqoilig60g06cou&st=84n6jeec&raw=1" alt="Sports Passion">
+                <div class="overlay">
+                    <h3>Sports Passion</h3>
+                    <p>Hyrox, swimming, or skiing—staying active is the key to my focus and energy.</p>
+                </div>
+            </div>
+            <div class="lifestyle-item">
+                <img src="https://www.dropbox.com/scl/fi/t5ue5xbq1behsjq8w97co/IMG_1623.jpeg?rlkey=4phrm34r9bftu3aghzz0fweg5&st=u6q5yqp1&raw=1" alt="Digital Diary">
+                <div class="overlay">
+                    <h3>Digital Diary</h3>
+                    <p>Capturing the soul of my travels via smartphone to tell compelling digital stories.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="footer">
-    <p>Created with Aloha by Ann-Christin | HPU Candidate 2026</p>
-</footer>
+    <section id="bucketlist" class="bucket-section">
+        <h2 class="section-title">My Hawaii Bucket List</h2>
+        <div class="hawaii-slider">
+            <div class="h-slides">
+                <div class="h-slide active">
+                    <img src="https://www.cestee.de/images/54/78/45478-920w.webp" alt="Waikiki">
+                    <div class="h-info"><h3>Waikiki Beach</h3><p>Surfing legendary waves where it all began.</p></div>
+                </div>
+                <div class="h-slide">
+                    <img src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2016-10/Volcanoes.jpg?h=330036a1&itok=uLO2_lw1" alt="Volcano">
+                    <div class="h-info"><h3>Volcanoes National Park</h3><p>Witnessing the raw power of earth's creation.</p></div>
+                </div>
+                <div class="h-slide">
+                    <img src="https://pearlharbor.org/wp-content/uploads/2023/03/FAQ.jpg" alt="Pearl Harbor">
+                    <div class="h-info"><h3>Pearl Harbor</h3><p>Honoring history and understanding the past.</p></div>
+                </div>
+                <div class="h-slide">
+                    <img src="https://i.redd.it/l7c04y0gj65y.jpg" alt="North Shore">
+                    <div class="h-info"><h3>The North Shore</h3><p>Watching the giants at the Pipeline.</p></div>
+                </div>
+                <div class="h-slide">
+                    <img src="https://www.mauiticketsforless.com/wp-content/uploads/haleakala.jpg" alt="Haleakala">
+                    <div class="h-info"><h3>Haleakalā Summit</h3><p>Watching the sunrise above the clouds.</p></div>
+                </div>
+            </div>
+            <button class="h-prev" onclick="changeHSlide(-1)">&#10094;</button>
+            <button class="h-next" onclick="changeHSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="postcard" class="postcard-container">
+        <div class="postcard">
+            <div class="postcard-body">
+                <div class="postcard-message">
+                    <h2>Postcard to the Committee</h2>
+                    <p>Dear Selection Committee,</p>
+                    <p>My journey to <strong>Hawaii Pacific University</strong> is driven by ambition and a hunger for global perspective.</p>
+                    <p>I am ready to grow, to contribute, and to bring the <em>Aloha Spirit</em> back to Germany.</p>
+                    <p>Thank you for your consideration!</p>
+                    <p class="signature">Ann-Christin</p>
+                </div>
+                <div class="postcard-address">
+                    <div class="stamp">🌺</div>
+                    <div class="address-lines">
+                        <div class="line">Selection Committee</div>
+                        <div class="line">GOmerica! Scholarship</div>
+                        <div class="line">Destination: HPU Hawaii</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Created with Aloha by Ann-Christin | HPU Candidate 2026</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Karte initialisieren
+            const map = L.map('map-container').setView([25, 0], 2.5);
+
+            // 2. TileLayer hinzufügen (Minimalistisches Design)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            // 3. Standorte definieren (Exakte Koordinaten)
+            const locations = [
+                { name: "Canada (Toronto)", coords: [43.6532, -79.3832], info: "Travel: Exploring the North and vast nature." },
+                { name: "New York", coords: [40.7128, -74.0060], info: "Business English Studies & Digital Marketing Insights." },
+                { name: "Florida", coords: [27.6648, -81.5158], info: "Travel: Sunshine State explorations." },
+                { name: "Hawaii (HPU)", coords: [21.3069, -157.8583], info: "THE GOAL: Merging Digital Management with Aloha Spirit.", isGoal: true },
+                { name: "Iceland", coords: [64.9631, -19.0208], info: "Nordic Sales Summit (Working)." },
+                { name: "Stockholm", coords: [59.3293, 18.0686], info: "Working with Nordic Business Partners." },
+                { name: "London", coords: [51.5074, -0.1278], info: "Language Trip: Deepening English skills." },
+                { name: "Netherlands", coords: [52.1326, 5.2913], info: "Working in Marketing & Sales." },
+                { name: "Antwerp", coords: [51.2194, 4.4025], info: "Work - Living Contrasts Tour." },
+                { name: "Zurich", coords: [47.3769, 8.5417], info: "Work - Living Contrasts Tour." },
+                { name: "Austria", coords: [47.5162, 14.5501], info: "Skiing: Passion for Performance & Sports." },
+                { name: "Lyon", coords: [45.7640, 4.8357], info: "Work - Living Contrasts Tour." },
+                { name: "Italy", coords: [41.8719, 12.5674], info: "Travel & Skiing: High performance and discovery." },
+                { name: "Spain (Murcia)", coords: [37.9922, -1.1307], info: "3 Months Living, Studying & Working immersion." },
+                { name: "Greece", coords: [39.0742, 21.8243], info: "Travel: Island hopping and ancient roots." },
+                { name: "Thailand", coords: [15.8700, 100.9925], info: "Solo Travel: Building resilience and agility." },
+                { name: "Bali", coords: [-8.4095, 115.1889], info: "Solo Travel: Cultural immersion and self-growth." }
+            ];
+
+            // 4. Marker hinzufügen
+            locations.forEach(loc => {
+                const iconClass = loc.isGoal ? 'custom-div-icon-hawaii' : 'custom-div-icon';
+                const customIcon = L.divIcon({
+                    className: iconClass,
+                    iconSize: loc.isGoal ? [20, 20] : [12, 12],
+                    iconAnchor: [6, 6]
+                });
+
+                const marker = L.marker(loc.coords, { icon: customIcon }).addTo(map);
+                marker.bindPopup(`<div><h4>${loc.name}</h4><p>${loc.info}</p></div>`);
+                marker.on('mouseover', function () { this.openPopup(); });
+            });
+
+            // --- Hawaii Bucket Slider Logic ---
+            let currentHSlide = 0;
+            const hSlides = document.querySelectorAll('.h-slide');
+            const totalHSlides = hSlides.length;
+
+            function changeHSlide(n) {
+                if (totalHSlides === 0) return;
+                hSlides[currentHSlide].classList.remove('active');
+                currentHSlide = (currentHSlide + n + totalHSlides) % totalHSlides;
+                hSlides[currentHSlide].classList.add('active');
+            }
+
+            // Expose function to global scope for button clicks
+            window.changeHSlide = changeHSlide;
+
+            // Auto-play Slider every 6 seconds
+            setInterval(() => changeHSlide(1), 6000);
+
+            // --- Smooth Scroll Fix ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    // Verhindert den Fehler, wenn targetId nur "#" ist
+                    if (targetId === "#" || targetId === "") return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const nav = document.querySelector('.navbar');
+                        const offset = nav ? nav.offsetHeight : 80;
+                        window.scrollTo({
+                            top: targetElement.offsetTop - offset,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
